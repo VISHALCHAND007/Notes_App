@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Notepad-X</string>
+    <string name="add_note">Add Note</string>
+    <string name="plan_your_note">Plan your note....</string>
+    <string name="note">Note*</string>
+    <string name="enter_title">Enter title</string>
+    <string name="title">Title*</string>
+</resources>

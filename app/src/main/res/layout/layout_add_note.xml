@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="20dp">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="30dp"
+        android:layout_height="3dp"
+        android:layout_centerHorizontal="true"
+        android:background="#424141"/>
+
+    <TextView
+        android:id="@+id/titleTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view"
+        android:text="@string/title"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/titleEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleTv"
+        android:background="@null"
+        android:hint="@string/enter_title"
+        android:autofillHints="@null"
+        android:layout_marginTop="10dp"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/NoteTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleEt"
+        android:text="@string/note"
+        android:layout_marginTop="20dp"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/noteEt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/NoteTv"
+        android:background="@null"
+        android:hint="@string/plan_your_note"
+        android:autofillHints="@null"
+        android:layout_marginTop="10dp"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/addNoteBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/noteEt"
+        android:layout_alignParentEnd="true"
+        android:text="@string/add_note"
+        android:backgroundTint="@color/purple_200"
+        android:layout_marginTop="20dp" />
+
+</RelativeLayout>
