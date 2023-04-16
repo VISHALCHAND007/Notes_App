@@ -32,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         init()
     }
+
     private fun init() {
         initElements()
         initTasks()
@@ -55,8 +56,10 @@ class MainActivity : AppCompatActivity() {
         notesRv.layoutManager = linearLayoutManager
         notesRv.adapter = notesAdapter
 
-        viewModel = ViewModelProvider(this,
-            ViewModelProvider.AndroidViewModelFactory.getInstance(application)).get(NoteViewModel::class.java)
+        viewModel = ViewModelProvider(
+            this,
+            ViewModelProvider.AndroidViewModelFactory.getInstance(application)
+        ).get(NoteViewModel::class.java)
 
         viewModel.allNotes.observe(this) { list ->
             list?.let {
@@ -68,7 +71,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("InflateParams")
     private fun initListeners() {
         addNoteImgBtn.setOnClickListener {
-            bottomSheet = BottomSheetDialog(this)
+            bottomSheet = BottomSheetDialog(this, R.style.BottomSheetDialog)
             val view = LayoutInflater.from(this).inflate(R.layout.layout_add_note, null)
             bottomSheet.setContentView(view)
             bottomSheet.dismissWithAnimation = true
@@ -83,10 +86,14 @@ class MainActivity : AppCompatActivity() {
         val noteEt: EditText? = view?.findViewById(R.id.noteEt)
 
         view?.findViewById<Button?>(R.id.addNoteBtn)?.setOnClickListener {
-            val note = NotesEntities(titleEt?.text.toString(), noteEt?.text.toString())
+            val titleStr = titleEt?.text.toString()
+            val noteStr = noteEt?.text.toString()
 
-            viewModel.insertNote(note)
-            bottomSheet.dismiss()
+            if (titleStr.isNotEmpty() && noteStr.isNotEmpty()) {
+                val note = NotesEntities(titleStr, noteStr)
+                viewModel.insertNote(note)
+                bottomSheet.dismiss()
+            }
         }
     }
 
