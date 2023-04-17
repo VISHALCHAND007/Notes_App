@@ -9,10 +9,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notepad_x.R
 import com.example.notepad_x.roomdb.NotesEntities
-import org.w3c.dom.Text
 
 class NotesAdapter(private val mContext: Context): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
-    private val allNotes = ArrayList<NotesEntities>()
+     val allNotes = ArrayList<NotesEntities>()
 
     inner class NotesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.title)
@@ -28,7 +27,7 @@ class NotesAdapter(private val mContext: Context): RecyclerView.Adapter<NotesAda
         return allNotes.size
     }
 
-    override fun onBindViewHolder(holder: NotesViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: NotesViewHolder, @SuppressLint("RecyclerView") position: Int) {
         val note = allNotes[position]
         holder.title.text = note.title
         holder.note.text = note.note
@@ -38,5 +37,8 @@ class NotesAdapter(private val mContext: Context): RecyclerView.Adapter<NotesAda
         allNotes.clear()
         allNotes.addAll(newList)
         notifyDataSetChanged()
+    }
+    fun getNote(position: Int): NotesEntities {
+        return NotesEntities(allNotes[position].title, allNotes[position].note)
     }
 }

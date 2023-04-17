@@ -8,4 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#9A8E8E</color>
+    <color name="colorAccent">#64AFDB</color>
+    <color name="colorAccentDark">#4D87A8</color>
+    <color name="note_color">#74E1EF</color>
 </resources>

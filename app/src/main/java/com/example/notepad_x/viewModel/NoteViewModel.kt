@@ -4,7 +4,6 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.viewModelFactory
 import com.example.notepad_x.repository.NotesRepository
 import com.example.notepad_x.roomdb.NotesDatabase
 import com.example.notepad_x.roomdb.NotesEntities
@@ -24,11 +23,14 @@ class NoteViewModel(application: Application): AndroidViewModel(application) {
         repository.insert(noteEntity)
     }
 
-    fun deleteNote(noteEntity: NotesEntities) = viewModelScope.launch(Dispatchers.IO) {
-        repository.delete(noteEntity)
+    fun deleteNote(title: String, note: String) = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete(title , note)
     }
 
-    fun updateNote(noteEntity: NotesEntities) = viewModelScope.launch(Dispatchers.IO) {
-        repository.update(noteEntity)
+    fun updateNote(title: String, note: String, id: Int) = viewModelScope.launch(Dispatchers.IO) {
+        repository.update(title, note, id)
+    }
+    suspend fun getNoteWithId(id: Int): NotesEntities {
+        return repository.getNoteWithId(id)
     }
 }

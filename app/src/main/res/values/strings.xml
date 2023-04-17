@@ -5,4 +5,8 @@
     <string name="note">Note*</string>
     <string name="enter_title">Enter title</string>
     <string name="title">Title*</string>
+    <string name="do_you_want_to_exit">Do you want to exit?</string>
+    <string name="no">No</string>
+    <string name="yes">Yes</string>
+    <string name="my_notes">My Notes</string>
 </resources>
