@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/notesTab"
+        android:icon="@drawable/notes"
+        android:title="@string/notes" />
+    <item
+        android:id="@+id/checklistTab"
+        android:icon="@drawable/checklist"
+        android:title="@string/checklist" />
+</menu>

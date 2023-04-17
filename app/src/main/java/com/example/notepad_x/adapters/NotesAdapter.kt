@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.notepad_x.R
 import com.example.notepad_x.roomdb.NotesEntities
 
-class NotesAdapter(private val mContext: Context): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
+class NotesAdapter(private val mContext: Context?): RecyclerView.Adapter<NotesAdapter.NotesViewHolder>() {
      val allNotes = ArrayList<NotesEntities>()
 
     inner class NotesViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
